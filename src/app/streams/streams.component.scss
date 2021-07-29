@@ -1,0 +1,29 @@
+.streams {
+    display: flex;
+    justify-content: flex-start;
+
+    .stream {
+        display: flex;
+        margin: 0 50px;
+
+        > div {
+            margin-top: 1em;
+        }
+    }
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.commencement {
+    display: flex;
+    justify-content: flex-start; 
+    margin-left: 1em;
+
+    div {
+        display: flex;
+        align-items: center;
+        margin-left: 1em;
+    }
+}

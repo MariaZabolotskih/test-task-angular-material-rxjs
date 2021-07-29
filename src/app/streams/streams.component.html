@@ -1,0 +1,13 @@
+<div class="commencement">
+    <button mat-raised-button (click)="run()" type="button" [disabled]="isDisabled">Start</button>
+    <div class="bold">Сумма: {{sum}}</div>
+</div>
+<div class="streams">
+    <div class="stream" *ngFor="let item of formData">
+        <div class="bold">{{item.title}}</div>
+        <ul>
+            <li *ngFor="let id of item.streamIds">{{id}}</li>
+        </ul>
+    </div>   
+</div> 
+

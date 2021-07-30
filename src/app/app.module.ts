@@ -15,6 +15,9 @@ import { StreamsComponent } from './streams/streams.component';
 import { RouterModule, Routes } from '@angular/router';
 import { TasksComponent } from './tasks/tasks.component';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
+import { OverlayService } from './service/overlay.service';
+import { DialogOverlayComponent } from './dialog-overlay/dialog-overlay.component';
+import { PortalModule } from '@angular/cdk/portal';
 
 
 const routes: Routes = [
@@ -30,7 +33,8 @@ const routes: Routes = [
     TabeComponent,
     StartPageComponent,
     StreamsComponent,
-    TasksComponent
+    TasksComponent,
+    DialogOverlayComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,9 +46,12 @@ const routes: Routes = [
     OverlayModule,
     MatInputModule,
     CdkAccordionModule,
+    PortalModule,
     [RouterModule.forRoot(routes)]
   ],
-  providers: [],
+  providers: [
+    OverlayService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

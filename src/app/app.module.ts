@@ -12,13 +12,25 @@ import { MatButtonModule } from '@angular/material/button';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { MatInputModule } from '@angular/material/input';
 import { StreamsComponent } from './streams/streams.component';
+import { RouterModule, Routes } from '@angular/router';
+import { TasksComponent } from './tasks/tasks.component';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
+
+
+const routes: Routes = [
+  { path: '', component: TasksComponent },
+  { path: 'task_1_2', component: StartPageComponent },
+  { path: 'task_3', component: StreamsComponent },
+  { path: '**', component: TasksComponent },
+]
 
 @NgModule({
   declarations: [
     AppComponent,
     TabeComponent,
     StartPageComponent,
-    StreamsComponent
+    StreamsComponent,
+    TasksComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +40,9 @@ import { StreamsComponent } from './streams/streams.component';
     MatSortModule,
     MatButtonModule,
     OverlayModule,
-    MatInputModule
+    MatInputModule,
+    CdkAccordionModule,
+    [RouterModule.forRoot(routes)]
   ],
   providers: [],
   bootstrap: [AppComponent]

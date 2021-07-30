@@ -1,0 +1,31 @@
+.router-outlet {
+    margin-top: 10px;
+    height: calc(100% - 58px);
+}
+.nav-menu {
+    background-color: #343a40;
+    height: 48px;
+
+    ul {
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+    }
+
+    li {
+        list-style-type: none;
+        margin: 1em 2em;
+        
+        a {
+            color:#ccc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #eee;
+            text-decoration: underline;
+        }
+    }
+
+}
+

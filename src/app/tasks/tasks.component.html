@@ -1,0 +1,106 @@
+
+<div class="accordion">
+    <div>Тестовые задания взяты с <a href="https://github.com/woerr/Angular-test-task" rel="nofollow">GitHub</a>.</div>
+    <cdk-accordion>
+        <cdk-accordion-item
+            #accordionItem0="cdkAccordionItem"
+            class="accordion-item">
+            <div class="accordion-item-header" (click)="accordionItem0.toggle()">
+                Задание 1
+                <span class="accordion-item-description">
+                Click to {{ accordionItem0.expanded ? 'close' : 'open' }}
+                </span>
+            </div>
+            <div class="accordion-item-body"
+                [style.display]="accordionItem0.expanded ? '' : 'none'">
+                <ol>
+                    <li>Сгенерировать новый проект при помощи <a href="https://cli.angular.io" rel="nofollow">Angular CLI</a>. Тип стилей использовать SCSS.</li>
+                    <li>Установить и подключить <a href="https://material.angular.io" rel="nofollow">Angular Material</a>.</li>
+                    <li>Сгенерировать компонент app-tabe при помощи <a href="https://cli.angular.io" rel="nofollow">Angular CLI</a>.</li>
+                    <li>В компоненте app-tabe при помощи компонента Table (mat-table) сделать одну таблицу одновременно</li>
+                </ol>
+                <p>и с фильтром:</p>
+                <figure>                
+                    <img src="/assets/Filtering.jpg">
+                </figure>
+                <p>и с сортировкой:</p>
+                <figure> 
+                    <img src="/assets/Sorting.jpg">
+                </figure>
+                <p>Данные для таблицы:</p>
+                <div class="highlight highlight-source-ts position-relative" >
+                    <pre>
+                        <span class="pl-k">export</span> <span class="pl-k">interface</span> <span class="pl-smi">PeriodicElement</span> <span class="pl-kos">{{ '{' }}</span>
+                            <span class="pl-c1">name</span>: <span class="pl-smi">string</span><span class="pl-kos">;</span>
+                            <span class="pl-c1">position</span>: <span class="pl-smi">number</span><span class="pl-kos">;</span>
+                            <span class="pl-c1">weight</span>: <span class="pl-smi">number</span><span class="pl-kos">;</span>
+                            <span class="pl-c1">symbol</span>: <span class="pl-smi">string</span><span class="pl-kos">;</span>
+                        <span class="pl-kos">{{ '}' }}</span>
+                        <span class="pl-k">const</span> <span class="pl-smi">ELEMENT_DATA</span>: <span class="pl-smi">PeriodicElement</span><span class="pl-kos">[</span><span class="pl-kos">]</span> <span class="pl-c1">=</span> <span class="pl-kos">[</span>
+                            <span class="pl-kos">{{ '{' }}</span><span class="pl-c1">position</span>: <span class="pl-c1">1</span><span class="pl-kos">,</span> <span class="pl-c1">name</span>: <span class="pl-s">'Hydrogen'</span><span class="pl-kos">,</span> <span class="pl-c1">weight</span>: <span class="pl-c1">1.0079</span><span class="pl-kos">,</span> <span class="pl-c1">symbol</span>: <span class="pl-s">'H'</span><span class="pl-kos">{{ '}' }}</span><span class="pl-kos">,</span>
+                            <span class="pl-kos">{{ '{' }}</span><span class="pl-c1">position</span>: <span class="pl-c1">2</span><span class="pl-kos">,</span> <span class="pl-c1">name</span>: <span class="pl-s">'Helium'</span><span class="pl-kos">,</span> <span class="pl-c1">weight</span>: <span class="pl-c1">4.0026</span><span class="pl-kos">,</span> <span class="pl-c1">symbol</span>: <span class="pl-s">'He'</span><span class="pl-kos">{{ '}' }}</span><span class="pl-kos">,</span>
+                            <span class="pl-kos">{{ '{' }}</span><span class="pl-c1">position</span>: <span class="pl-c1">3</span><span class="pl-kos">,</span> <span class="pl-c1">name</span>: <span class="pl-s">'Lithium'</span><span class="pl-kos">,</span> <span class="pl-c1">weight</span>: <span class="pl-c1">6.941</span><span class="pl-kos">,</span> <span class="pl-c1">symbol</span>: <span class="pl-s">'Li'</span><span class="pl-kos">{{ '}' }}</span><span class="pl-kos">,</span>
+                            <span class="pl-kos">{{ '{' }}</span><span class="pl-c1">position</span>: <span class="pl-c1">4</span><span class="pl-kos">,</span> <span class="pl-c1">name</span>: <span class="pl-s">'Beryllium'</span><span class="pl-kos">,</span> <span class="pl-c1">weight</span>: <span class="pl-c1">9.0122</span><span class="pl-kos">,</span> <span class="pl-c1">symbol</span>: <span class="pl-s">'Be'</span><span class="pl-kos">{{ '}' }}</span><span class="pl-kos">,</span>
+                            <span class="pl-kos">{{ '{' }}</span><span class="pl-c1">position</span>: <span class="pl-c1">5</span><span class="pl-kos">,</span> <span class="pl-c1">name</span>: <span class="pl-s">'Boron'</span><span class="pl-kos">,</span> <span class="pl-c1">weight</span>: <span class="pl-c1">10.811</span><span class="pl-kos">,</span> <span class="pl-c1">symbol</span>: <span class="pl-s">'B'</span><span class="pl-kos">{{ '}' }}</span><span class="pl-kos">,</span>
+                            <span class="pl-kos">{{ '{' }}</span><span class="pl-c1">position</span>: <span class="pl-c1">6</span><span class="pl-kos">,</span> <span class="pl-c1">name</span>: <span class="pl-s">'Carbon'</span><span class="pl-kos">,</span> <span class="pl-c1">weight</span>: <span class="pl-c1">12.0107</span><span class="pl-kos">,</span> <span class="pl-c1">symbol</span>: <span class="pl-s">'C'</span><span class="pl-kos">{{ '}' }}</span><span class="pl-kos">,</span>
+                            <span class="pl-kos">{{ '{' }}</span><span class="pl-c1">position</span>: <span class="pl-c1">7</span><span class="pl-kos">,</span> <span class="pl-c1">name</span>: <span class="pl-s">'Nitrogen'</span><span class="pl-kos">,</span> <span class="pl-c1">weight</span>: <span class="pl-c1">14.0067</span><span class="pl-kos">,</span> <span class="pl-c1">symbol</span>: <span class="pl-s">'N'</span><span class="pl-kos">{{ '}' }}</span><span class="pl-kos">,</span>
+                            <span class="pl-kos">{{ '{' }}</span><span class="pl-c1">position</span>: <span class="pl-c1">8</span><span class="pl-kos">,</span> <span class="pl-c1">name</span>: <span class="pl-s">'Oxygen'</span><span class="pl-kos">,</span> <span class="pl-c1">weight</span>: <span class="pl-c1">15.9994</span><span class="pl-kos">,</span> <span class="pl-c1">symbol</span>: <span class="pl-s">'O'</span><span class="pl-kos">{{ '}' }}</span><span class="pl-kos">,</span>
+                            <span class="pl-kos">{{ '{' }}</span><span class="pl-c1">position</span>: <span class="pl-c1">9</span><span class="pl-kos">,</span> <span class="pl-c1">name</span>: <span class="pl-s">'Fluorine'</span><span class="pl-kos">,</span> <span class="pl-c1">weight</span>: <span class="pl-c1">18.9984</span><span class="pl-kos">,</span> <span class="pl-c1">symbol</span>: <span class="pl-s">'F'</span><span class="pl-kos">{{ '}' }}</span><span class="pl-kos">,</span>
+                            <span class="pl-kos">{{ '{' }}</span><span class="pl-c1">position</span>: <span class="pl-c1">10</span><span class="pl-kos">,</span> <span class="pl-c1">name</span>: <span class="pl-s">'Neon'</span><span class="pl-kos">,</span> <span class="pl-c1">weight</span>: <span class="pl-c1">20.1797</span><span class="pl-kos">,</span> <span class="pl-c1">symbol</span>: <span class="pl-s">'Ne'</span><span class="pl-kos">{{ '}' }}</span><span class="pl-kos">,</span>
+                        <span class="pl-kos">]</span><span class="pl-kos">;</span>
+                    </pre>
+                </div>
+            </div>
+        </cdk-accordion-item>
+        <cdk-accordion-item
+            #accordionItem1="cdkAccordionItem"
+            class="accordion-item">
+            <div class="accordion-item-header" (click)="accordionItem1.toggle()">
+                Задание 2
+                <span class="accordion-item-description">
+                Click to {{ accordionItem1.expanded ? 'close' : 'open' }}
+                </span>
+            </div>
+            <div class="accordion-item-body"
+                [style.display]="accordionItem1.expanded ? '' : 'none'">
+                <ol>
+                    <li>Сгенерировать компонент app-start-page при помощи <a href="https://cli.angular.io" rel="nofollow">Angular CLI</a>.</li>
+                    <li>В компоненте app-start-page при помощи компонента Button (mat-button) сделать кнопку "Показать таблицу".</li>
+                    <li>При клике по этой кнопке должен появлятся компонент app-tabe поверх страницы в модальном окне. Для этого обязательно использовать CDK Overlay из <a href="https://material.angular.io" rel="nofollow">Angular Material</a>.</li>
+                </ol>
+                <p>Визуально должно выглядеть примерно так:</p>
+                <figure> 
+                    <img src="/assets/Modal.jpg">
+                </figure> 
+            </div>
+        </cdk-accordion-item>
+        <cdk-accordion-item
+            #accordionItem2="cdkAccordionItem"
+            class="accordion-item">
+            <div class="accordion-item-header" (click)="accordionItem2.toggle()">
+                Задание 3
+                <span class="accordion-item-description">
+                Click to {{ accordionItem2.expanded ? 'close' : 'open' }}
+                </span>
+            </div>
+            <div class="accordion-item-body"
+                [style.display]="accordionItem2.expanded ? '' : 'none'">
+                <ol>
+                    <li>Создать 3 потока генерирующих объекты типа {{'{'}} id: number, stream: number{{'}'}}, где поле stream - это номер потока, а id - это порядковый номер объекта.</li>
+                    <li>Потоки стартуют одновременно по нажатию на кнопку Cтарт.</li>
+                    <li>Первый поток генериhует объекты каждые 1000мс, второй - 1500мс, третий - 2000мс.</li>
+                    <li>Четвертый поток объединяет первые три потока? но начинает брать данные следующим образом:
+                    с первого потока данные берет сразу,
+                    со второго через 10 секунд, но с первого брать не прекращает
+                    с третьего через 20 секунд, но с первого и второго брать не прекращает.</li>
+                    <li>Все данные, взятые четвертым потоком, должны быть выводиться на экран в реальном времени: каждый объект в отдельный список с номером потока, который данные сгенерировал. Также в реальном времени должна обновляться сумма id всех потоков, которые вошли в четвертый поток.</li>
+                    <li>Через 30 секунд четвертый поток прекращает брать данные и останавливает все потоки.</li>
+                </ol>
+                <figure> 
+                    <img src="/assets/Rxjs.png">
+                </figure> 
+            </div>
+        </cdk-accordion-item>
+    </cdk-accordion>
+</div>
+

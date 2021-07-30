@@ -1,2 +1,16 @@
-<app-start-page></app-start-page>
-<app-streams></app-streams>
+<div class="nav-menu">
+    <ul>
+        <li>
+            <a routerLink="/" routerLinkActive="active-link">Текст заданий</a>
+        </li>
+        <li>
+            <a routerLink="/task_1_2" routerLinkActive="active-link">Задания 1 и 2</a>
+        </li>
+        <li>
+            <a routerLink="/task_3" routerLinkActive="active-link">Задание 3</a>
+        </li>
+    </ul>
+</div>
+<div class="router-outlet">
+    <router-outlet></router-outlet>
+</div>

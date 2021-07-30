@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable, merge, timer } from 'rxjs';
+import { Component, OnDestroy } from '@angular/core';
+import { Observable, merge, timer, Subscription } from 'rxjs';
 import { skipUntil } from 'rxjs/operators';
 
 @Component({
@@ -8,7 +8,7 @@ import { skipUntil } from 'rxjs/operators';
   styleUrls: ['./streams.component.scss']
 })
 
-export class StreamsComponent implements OnInit {
+export class StreamsComponent implements OnDestroy {
 
   private _sum = 0;
   private _isDisabled = false;
@@ -17,10 +17,13 @@ export class StreamsComponent implements OnInit {
     {title: "Второй поток", streamNumber: 1, streamIds: []},
     {title: "Третий поток", streamNumber: 2, streamIds: []},
   ]
+  private stream4: Subscription;
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnDestroy(): void {
+    if (this.stream4)
+      this.stream4.unsubscribe();
   }
 
   get sum() {
@@ -44,7 +47,7 @@ export class StreamsComponent implements OnInit {
     const stream2 = this.createStream(1, 1500);
     const stream3 = this.createStream(2, 2000);
 
-    const stream4 = merge(
+    this.stream4 = merge(
       stream1, 
       stream2.pipe(skipUntil(timer(10000))), 
       stream3.pipe(skipUntil(timer(20000))),  
@@ -54,7 +57,7 @@ export class StreamsComponent implements OnInit {
     }) 
     
     setTimeout(()=> {
-      stream4.unsubscribe();
+      this.stream4.unsubscribe();
       this._isDisabled = false;
     }, 30000);
 

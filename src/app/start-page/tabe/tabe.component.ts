@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewInit , ViewChild } from '@angular/core';
+import {MatSort} from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
 
@@ -27,8 +28,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: './tabe.component.html',
   styleUrls: ['./tabe.component.scss']
 })
-export class TabeComponent implements OnInit {
-
+export class TabeComponent implements AfterViewInit  {
+  @ViewChild(MatSort) sort: MatSort;
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
@@ -39,7 +40,8 @@ export class TabeComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
   }
 
 }

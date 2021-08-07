@@ -5,9 +5,10 @@
 </div>
 
 <ng-template #templatePortalContent>
-  <app-dialog-overlay
+  <app-dialog-overlay 
+    class="dialog"
     (onClosed)="close()"
-    header="Таблица с фильтром и сортировкой">
+    header = "Таблица с фильтром и сортировкой">
     <app-tabe></app-tabe>
   </app-dialog-overlay>
 </ng-template>

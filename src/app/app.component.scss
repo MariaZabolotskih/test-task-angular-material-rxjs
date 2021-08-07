@@ -1,6 +1,7 @@
 .router-outlet {
     margin-top: 10px;
     height: calc(100% - 58px);
+    overflow: auto;
 }
 .nav-menu {
     background-color: #343a40;

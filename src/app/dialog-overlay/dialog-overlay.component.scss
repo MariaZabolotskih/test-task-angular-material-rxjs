@@ -1,3 +1,27 @@
 .dialog-content {
  background: #fff;
+ display: flex;
+ flex-direction: column;
+ height: 100%;
+
+ .dialog-header {
+    padding: 0.5em;
+    border-bottom: thin solid rgba(0,16,61,.12);
+    h2 {
+        margin: 0;
+    }
+ }
+
+ .dialog-body {
+    padding: 0.5em;
+    overflow: auto;
+ }
+ 
+ .dialog-footer {
+    padding: 0.5em;
+    display: flex;
+    justify-content: flex-end;
+    border-top: thin solid rgba(0,16,61,.12);
+ }
+
 }

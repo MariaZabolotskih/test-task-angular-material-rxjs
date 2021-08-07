@@ -1,7 +1,11 @@
 <div class="dialog-content">
-    <div>{{header}}</div>
-    <ng-content></ng-content>
-    <div>
+    <div class="dialog-header">
+        <h2>{{header}}</h2>
+    </div>
+    <div class="dialog-body">
+        <ng-content></ng-content>
+    </div>
+    <div class="dialog-footer">
         <button mat-raised-button color="primary" (click)="close()" type="button">
            Закрыть
         </button>
